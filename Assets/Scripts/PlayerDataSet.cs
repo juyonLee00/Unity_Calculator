@@ -23,12 +23,15 @@ public class PlayerDataSet : MonoBehaviour
     [SerializeField]
     public TextMeshProUGUI balanceObject;
 
-    void Start()
+    void Update()
+    {
+        SettingInitialData();
+    }
+
+    public void SettingInitialData()
     {
         cashObject.text = userCash.ToString();
         nameObject.text = userName;
         balanceObject.text = userBalance.ToString();
     }
-
-    
 }

@@ -4,28 +4,54 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using System;
 
 public class CreditBtn : MonoBehaviour
 {
     [SerializeField]
     GameObject player;
 
+    [SerializeField]
+    TMP_InputField inputField;
+
+    [SerializeField]
+    GameObject panel;
+
     public void ClickBtnName()
     {
         GameObject clickObject = EventSystem.current.currentSelectedGameObject;
-        Credit(clickObject);
-        //Debug.Log(clickObject.name + ", " + clickObject.GetComponentInChildren<TextMeshProUGUI>().text);
+        int inputMoney;
+
+        if(String.IsNullOrEmpty(inputField.text))
+        {
+            inputMoney = int.Parse(clickObject.GetComponentInChildren<TextMeshProUGUI>().text);
+        }
+
+        else
+        {
+            inputMoney = int.Parse(inputField.text);
+        }
+       
+        Credit(inputMoney);
     }
 
-    public void Credit(GameObject clickObject)
+    public void Credit(int inputMoney)
     {
-        if(player)
-        {
+        PlayerDataSet playerData = player.GetComponent<PlayerDataSet>();
 
+        int curCash = playerData.userCash;
+        int curBalance = playerData.userBalance;
+
+        if(curCash <= inputMoney)
+        {
+            panel.SetActive(true);
+        }
+
+        else
+        {
+            playerData.userCash -= inputMoney;
+            playerData.userBalance += inputMoney;
         }
     }
 
-    //처음에 가져올 버튼 오브젝트 가져오기
-
-    //해당 버튼 클릭시 플레이어의 balance, cash 값에 따라 팝업 띄울건지 값 옮길건지 결정.
 }

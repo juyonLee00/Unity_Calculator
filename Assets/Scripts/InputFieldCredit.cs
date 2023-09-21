@@ -11,7 +11,7 @@ public class InputFieldCredit : MonoBehaviour
 
     public void GetInputMoney()
     {
-        
-        Debug.Log(inputMoney.text);
+        string inputMoneyData = inputMoney.text;
+        Debug.Log(inputMoneyData);
     }
 }
