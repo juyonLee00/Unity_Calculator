@@ -1,20 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using TMPro;
 
 public class CreditBtn : MonoBehaviour
 {
-    // Start is called before the first frame update
-    [SerializeField] GameObject creditBtn;
-    void Start()
+    public void ClickBtnName()
     {
-        
-    }
+        Debug.Log("click btn");
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        GameObject clickObject = EventSystem.current.currentSelectedGameObject;
+        Debug.Log(clickObject.name + ", " + clickObject.GetComponentInChildren<TextMeshProUGUI>().text);
     }
 
     //처음에 가져올 버튼 오브젝트 가져오기
