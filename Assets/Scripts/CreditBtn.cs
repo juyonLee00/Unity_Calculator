@@ -7,12 +7,22 @@ using TMPro;
 
 public class CreditBtn : MonoBehaviour
 {
+    [SerializeField]
+    GameObject player;
+
     public void ClickBtnName()
     {
-        Debug.Log("click btn");
-
         GameObject clickObject = EventSystem.current.currentSelectedGameObject;
-        Debug.Log(clickObject.name + ", " + clickObject.GetComponentInChildren<TextMeshProUGUI>().text);
+        Credit(clickObject);
+        //Debug.Log(clickObject.name + ", " + clickObject.GetComponentInChildren<TextMeshProUGUI>().text);
+    }
+
+    public void Credit(GameObject clickObject)
+    {
+        if(player)
+        {
+
+        }
     }
 
     //처음에 가져올 버튼 오브젝트 가져오기
