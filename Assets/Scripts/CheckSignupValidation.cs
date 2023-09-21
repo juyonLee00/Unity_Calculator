@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Text.RegularExpressions;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CheckSignupValidation : MonoBehaviour
 {
@@ -33,7 +33,8 @@ public class CheckSignupValidation : MonoBehaviour
     bool correctPWValidation = false;
     bool correctPWConfirmValidation = false;
 
-    string regexStr;
+    int defaultCashData = 50000;
+    int defaultBalanceData = 100000;
 
     public void OnClickCheckSignUp()
     {
@@ -69,18 +70,9 @@ public class CheckSignupValidation : MonoBehaviour
 
     void CheckID()
     {
-        regexStr = Regex.Replace(idInputField.text, @"[^a-zA-Z0-9]", "");
-
-        if(regexStr == idInputField.text)
-        {
-            correctIDValidation = false;
-            return;
-        }
-
         if(idInputField.text.Length >= 3)
         {
-            //data파일 존재하는지 확인
-            if(true)
+            if(PlayerPrefs.HasKey(idInputField.text))
             {
                 correctIDValidation = true;
             }
@@ -99,14 +91,6 @@ public class CheckSignupValidation : MonoBehaviour
 
     void CheckPW()
     {
-        regexStr = Regex.Replace(pwInputField.text, @"[^a-zA-Z0-9]", "");
-
-        if (regexStr == pwInputField.text)
-        {
-            correctPWValidation = false;
-            return;
-        }
-
         if (pwInputField.text.Length >= 5)
         {
             correctPWValidation = true;
@@ -125,6 +109,9 @@ public class CheckSignupValidation : MonoBehaviour
 
     void SaveUserData()
     {
-
+        PlayerPrefs.SetString("ID", idInputField.text);
+        PlayerPrefs.SetString("PW", pwInputField.text);
+        PlayerPrefs.SetInt("Cash", defaultCashData);
+        PlayerPrefs.SetInt("Balance", defaultBalanceData);
     }
 }
