@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using TMPro;
+using UnityEngine.EventSystems;
 using System;
 
-public class CreditBtn : MonoBehaviour
+public class WithdrawBtn : MonoBehaviour
 {
     [SerializeField]
     GameObject player;
@@ -18,14 +17,14 @@ public class CreditBtn : MonoBehaviour
     GameObject panel;
 
     [SerializeField]
-    GameObject creditObject;
+    GameObject withdrawObject;
 
     public void ClickBtnName()
     {
         GameObject clickObject = EventSystem.current.currentSelectedGameObject;
         int inputMoney;
 
-        if(String.IsNullOrEmpty(inputField.text))
+        if (String.IsNullOrEmpty(inputField.text))
         {
             inputMoney = int.Parse(clickObject.GetComponentInChildren<TextMeshProUGUI>().text);
         }
@@ -34,27 +33,26 @@ public class CreditBtn : MonoBehaviour
         {
             inputMoney = int.Parse(inputField.text);
         }
-       
-        Credit(inputMoney);
+
+        Withdraw(inputMoney);
     }
 
-    public void Credit(int inputMoney)
+    public void Withdraw(int inputMoney)
     {
         PlayerDataSet playerData = player.GetComponent<PlayerDataSet>();
 
-        int curCash = playerData.userCash;
+        int curBalance = playerData.userBalance;
 
-        if(curCash <= inputMoney)
+        if (curBalance <= inputMoney)
         {
             panel.SetActive(true);
-            creditObject.SetActive(false);
+            withdrawObject.SetActive(false);
         }
 
         else
         {
-            playerData.userCash -= inputMoney;
-            playerData.userBalance += inputMoney;
+            playerData.userCash += inputMoney;
+            playerData.userBalance -= inputMoney;
         }
     }
-
 }
