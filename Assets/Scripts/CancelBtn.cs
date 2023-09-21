@@ -2,18 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PanelSetActive : MonoBehaviour
+public class CancelBtn : MonoBehaviour
 {
     [SerializeField]
     GameObject panel;
 
-    public void OnClickPanelOff()
+    public void OnClickClosePanel()
     {
         panel.SetActive(false);
-    }
-
-    public void OnClickActivationPanel()
-    {
-        panel.SetActive(true);
     }
 }
