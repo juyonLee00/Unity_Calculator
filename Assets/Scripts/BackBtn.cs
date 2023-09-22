@@ -11,6 +11,9 @@ public class BackBtn : MonoBehaviour
     GameObject activeWithdrawBtn;
 
     [SerializeField]
+    GameObject activeTransferBtn;
+
+    [SerializeField]
     GameObject inactiveWindow;
 
     public void OnclickBackMain()
@@ -18,5 +21,6 @@ public class BackBtn : MonoBehaviour
         inactiveWindow.SetActive(false);
         activeCreditBtn.SetActive(true);
         activeWithdrawBtn.SetActive(true);
+        activeTransferBtn.SetActive(true);
     }
 }

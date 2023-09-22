@@ -13,10 +13,14 @@ public class ShowWindow : MonoBehaviour
     [SerializeField]
     GameObject inactiveWithdrawBtn;
 
+    [SerializeField]
+    GameObject inactiveTransferBtn;
+
     public void OnClickShowWindow()
     {
         activeData.SetActive(true);
         inactiveCreditBtn.SetActive(false);
         inactiveWithdrawBtn.SetActive(false);
+        inactiveTransferBtn.SetActive(false);
     }
 }
