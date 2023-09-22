@@ -113,8 +113,5 @@ public class CheckSignupValidation : MonoBehaviour
         PlayerPrefs.SetString("PW", pwInputField.text);
         PlayerPrefs.SetInt("Cash", defaultCashData);
         PlayerPrefs.SetInt("Balance", defaultBalanceData);
-        Debug.Log("Save");
-        Debug.Log(idInputField.text);
-        Debug.Log(pwInputField.text);
     }
 }

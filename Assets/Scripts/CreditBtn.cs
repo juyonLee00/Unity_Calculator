@@ -47,7 +47,6 @@ public class CreditBtn : MonoBehaviour
         if(curCash <= inputMoney)
         {
             panel.SetActive(true);
-            creditObject.SetActive(false);
         }
 
         else
