@@ -1,5 +1,5 @@
 # Unity_Calculator
-유니티 2D ATM 실습 자료
+유니티 2D ATM 실습 자료입니다.
 
 <br/>
 <br/>
