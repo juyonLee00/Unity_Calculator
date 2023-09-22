@@ -72,7 +72,7 @@ public class CheckSignupValidation : MonoBehaviour
     {
         if(idInputField.text.Length >= 3)
         {
-            if(PlayerPrefs.HasKey(idInputField.text))
+            if(!PlayerPrefs.HasKey(idInputField.text))
             {
                 correctIDValidation = true;
             }
@@ -101,7 +101,7 @@ public class CheckSignupValidation : MonoBehaviour
 
     void CheckPWConfirm()
     {
-        if(pwInputField.text == pwConfirmInputField.text)
+        if(pwInputField.text.Equals(pwConfirmInputField.text))
         {
             correctPWConfirmValidation = true;
         }
@@ -113,5 +113,8 @@ public class CheckSignupValidation : MonoBehaviour
         PlayerPrefs.SetString("PW", pwInputField.text);
         PlayerPrefs.SetInt("Cash", defaultCashData);
         PlayerPrefs.SetInt("Balance", defaultBalanceData);
+        Debug.Log("Save");
+        Debug.Log(idInputField.text);
+        Debug.Log(pwInputField.text);
     }
 }
