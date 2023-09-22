@@ -46,7 +46,6 @@ public class WithdrawBtn : MonoBehaviour
         if (curBalance <= inputMoney)
         {
             panel.SetActive(true);
-            withdrawObject.SetActive(false);
         }
 
         else

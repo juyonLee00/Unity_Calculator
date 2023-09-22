@@ -15,8 +15,6 @@ public class LoginBtn : MonoBehaviour
     [SerializeField]
     GameObject wrongLoginPanel;
 
-    bool isLogin = false;
-
     public void OnClickLogin()
     {
         if(PlayerPrefs.HasKey("ID"))
@@ -26,7 +24,6 @@ public class LoginBtn : MonoBehaviour
 
             if(inputId.Equals(PlayerPrefs.GetString("ID")) && inputPw.Equals(PlayerPrefs.GetString("PW")))
             {
-                isLogin = true;
                 SceneManager.LoadScene("MainScene");
             }
         }
